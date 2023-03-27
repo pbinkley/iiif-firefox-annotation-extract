@@ -2,7 +2,7 @@
 
 require 'sqlite3'
 require 'json'
-require 'active_support/core_ext/digest/uuid'
+require 'securerandom'
 require 'tmpdir'
 
 DBFILENAME = 'webappsstore.sqlite'.freeze
@@ -42,7 +42,7 @@ db.close
 
 list = {
     "@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": Digest::UUID.uuid_v4,
+    "@id": SecureRandom.uuid,
     "@type": "sc:AnnotationList",
     "resources": annotations
   }
